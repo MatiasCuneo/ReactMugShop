@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;900&display=swap');
+
+:root {
+  --main: #F2E3DB;
+  --secondary: #41644A;
+  --secondary-dark: #263A29;
+  --accent: #E86A33;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* ========== MAIN ========== */
+
+main {
+  background-image: url(../../public/imgs/mug_bg.png);
+  height: 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.bg {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+main h1 {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 3.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 80%;
+  line-height: 65px;
+}
+
+/* ========== INFO SECTION ========== */
+
+.info {
+  background-color: var(--accent);
+  position: relative;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 4px 1fr;
+}
+
+.desc {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 5px 2fr;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1.75em;
+}
+
+.desc_icon {
+  width: 60px;
+  aspect-ratio: 1;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 0 1em;
+}
+
+.content p {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.content a {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: white;
+}
+
+.content_separator {
+  height: 100%;
+  width: 4px;
+  border-radius: 500px;
+  background-color: var(--main);
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+  width: 100%;
+  height: 4em;
+  background-color: rgb(100, 100, 100);
+  padding: 35px;
+}
+
+.redes {
+  gap: 2em;
+}
+
+footer,
+.redes,
+.redes a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.redes a img {
+  aspect-ratio: 1;
+  width: 35px;
+}
+
+/* ========== LOGIN ========== */
+
+.login {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7.5%;
+  padding-top: 6rem;
+  color: var(--secondary-dark);
+}
+
+.login form {
+  background-color: white;
+  height: 60%;
+  width: 30%;
+  padding: 1em 4em;
+  border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.form_input,
+.login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login img {
+  width: 40%;
+}
+
+.form_input {
+  width: 100%;
+}
+
+.form_input input {
+  width: 100%;
+  height: 3em;
+  border: 1px solid var(--secondary-dark);
+  border-radius: 5px;
+  padding-left: 20px;
+  font-weight: 500;
+}
+
+.form_input label {
+  margin-bottom: 10px;
+}
+
+.login button {
+  width: 100%;
+  height: 3em;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: white;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.terms {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  margin-top: 10px;
+}
+
+.terms a {
+  color: var(--secondary-dark);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ========== MEDIUM SIZE ========== */
+
+@media screen and (max-width: 900px) {
+  main h1 {
+    font-size: 2.5rem;
+    bottom: 7.5%;
+  }
+
+  .desc_icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .content p {
+    font-size: 1.2rem;
+  }
+
+  .info {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .info {
+    padding: 1.5em;
+    grid-gap: 0.75em;
+  }
+}
+
+/* ========== MOBILE SIZE ========== */
+
+@media screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  main h1 {
+    bottom: 5%;
+    line-height: 50px;
+  }
+
+  .info {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 4px auto;
+    overflow: auto;
+    position: relative;
+  }
+
+  .desc {
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .content_separator {
+    height: 100%;
+  }
+
+  #right {
+    grid-template-columns: 2fr 4px 0.5fr;
+  }
+}
