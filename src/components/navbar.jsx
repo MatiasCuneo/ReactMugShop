@@ -1,3 +1,5 @@
+import toggleClass from '../js/hamburguer.js';
+
 function NavBar() {
     const displayNone = {
         display: 'none'
@@ -6,12 +8,12 @@ function NavBar() {
     return(
         <header>
             <input type="checkbox" style={displayNone} name="hamburger" id="hamburger"/>
-            <label htmlFor="hamburger" className="hamburger" id="ham">
+            <label htmlFor="hamburger" className="hamburger" id="ham" onClick={toggleClass}>
                 <div className="bar"></div>
                 <div className="bar"></div>
                 <div className="bar"></div>
             </label>
-            <nav id="nav">
+            <nav className="" id="nav">
                 <img src="imgs/logo.png" alt="logo" className="logo" onClick="location.href='index.html'"/>
                 <ul className="nav_opts">
                     <li className="nav_opt nav_search">

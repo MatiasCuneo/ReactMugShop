@@ -23,6 +23,11 @@ body {
 
 /* ========== MAIN ========== */
 
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
 main {
   background-image: url(../../public/imgs/mug_bg.png);
   height: 70%;
@@ -271,9 +276,5 @@ footer,
 
   .content_separator {
     height: 100%;
-  }
-
-  #right {
-    grid-template-columns: 2fr 4px 0.5fr;
   }
 }
