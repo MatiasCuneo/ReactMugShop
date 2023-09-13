@@ -29,7 +29,7 @@ body {
 }
 
 main {
-  background-image: url(../../public/imgs/mug_bg.png);
+  background-image: url(./imgs/mug_bg.png);
   height: 70%;
   background-size: cover;
   background-repeat: no-repeat;

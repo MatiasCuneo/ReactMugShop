@@ -1,4 +1,7 @@
-import toggleClass from '../js/hamburguer.js';
+import toggleClass from '../../js/hamburguer.js';
+import logo from '../../imgs/logo.png';
+import cart from '../../imgs/cart.svg';
+import bookopen from '../../imgs/book-open.svg';
 
 function NavBar() {
     const displayNone = {
@@ -14,7 +17,7 @@ function NavBar() {
                 <div className="bar"></div>
             </label>
             <nav className="" id="nav">
-                <img src="imgs/logo.png" alt="logo" className="logo" onClick="location.href='index.html'"/>
+                <img src={logo} alt="logo" className="logo" onClick="location.href='index.html'"/>
                 <ul className="nav_opts">
                     <li className="nav_opt nav_search">
                         <form action="#" method="get">
@@ -23,11 +26,11 @@ function NavBar() {
                     </li>
                     <div className="nav_space">
                         <li className="nav_opt">
-                            <img src="imgs/cart.svg" alt="cart" className="nav_icon"/>
+                            <img src={cart} alt="cart" className="nav_icon"/>
                             <a href="#">Carrito</a>
                         </li>
                         <li className="nav_opt">
-                            <img src="imgs/book-open.svg" alt="book" className="nav_icon"/>
+                            <img src={bookopen} alt="book" className="nav_icon"/>
                             <input type="checkbox" name="dropdown" id="dropdown"/>
                             <div className="catalogue">
                                 <h2>(TBD)</h2>
