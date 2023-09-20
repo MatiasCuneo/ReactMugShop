@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "name": "Cup 1",
+      "description": "Description for Cup 1",
+      "price": 19.99,
+      "category": "Plottable",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Cup 2",
+      "description": "Description for Cup 2",
+      "price": 29.99,
+      "category": "Plain",
+      "image": "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+    }
+]
+  

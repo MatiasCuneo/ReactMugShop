@@ -27,7 +27,7 @@ function NavBar() {
                     <div className="nav_space">
                         <li className="nav_opt">
                             <img src={cart} alt="cart" className="nav_icon"/>
-                            <a href="#">Carrito</a>
+                            <a href="cart">Carrito</a>
                         </li>
                         <li className="nav_opt">
                             <img src={bookopen} alt="book" className="nav_icon"/>

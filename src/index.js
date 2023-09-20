@@ -5,6 +5,8 @@ import './main.css';
 import App from './App';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Cart from './pages/cart/Cart';
+import products from './products.json';
 
 import {
   createBrowserRouter,
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />
+  },
+  {
+    path: '/cart',
+    element: <Cart productos={products}/>
   }
 ]);
 
