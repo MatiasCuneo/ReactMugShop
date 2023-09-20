@@ -1,0 +1,38 @@
+.products {
+    width: 80%;
+    min-height: 80%;
+}
+
+.products ul {
+    list-style: none;
+    margin-bottom: 2em;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.products li {
+    background-color: white;
+    width: 15em;
+    padding: calc(10px + 1em);
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: all 250ms ease-in-out;
+}
+
+.products li:hover {
+    transform: scale(1.025);
+    cursor: pointer;
+}
+
+.products img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.products h1 {
+    margin-bottom: .25em;
+}
