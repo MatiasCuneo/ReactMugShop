@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './components/navbar/navbar.css';
 import './main.css';
 import App from './App';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,6 +16,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
   }
 ]);
 

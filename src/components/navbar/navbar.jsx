@@ -17,7 +17,7 @@ function NavBar() {
                 <div className="bar"></div>
             </label>
             <nav className="" id="nav">
-                <img src={logo} alt="logo" className="logo" onClick="location.href='index.html'"/>
+                <img src={logo} alt="logo" className="logo" />
                 <ul className="nav_opts">
                     <li className="nav_opt nav_search">
                         <form action="#" method="get">
@@ -41,10 +41,10 @@ function NavBar() {
                     <div className="separator"></div>
                     <div className="nav_space">
                         <li className="nav_opt">
-                            <a href="login.html">Ingresar</a>
+                            <a href="login">Ingresar</a>
                         </li>
                         <li className="nav_opt">
-                            <a href="register.html"><strong>Registrate</strong></a>
+                            <a href="register"><strong>Registrate</strong></a>
                         </li>    
                     </div>
                 </ul>
