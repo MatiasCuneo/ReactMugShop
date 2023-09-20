@@ -1,13 +1,13 @@
 import briefcase from './imgs/briefcase.svg';
 import arrowright from './imgs/arrow-right.svg';
 import bookmark from './imgs/bookmark.svg';
-import instagram from './imgs/instagram.svg';
-import facebook from './imgs/facebook.svg';
-import twitter from './imgs/twitter.svg';
+import NavBar from './components/navbar/navbar.jsx';
+import Footer from './components/footer/footer.jsx';
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <main>
         <div className="bg"></div>
         <h1>Las Mejores Tazas ploteadas del Mercado</h1>
@@ -37,14 +37,7 @@ function App() {
               </section>
           </div>
       </div>
-      <footer>
-          <h4><strong>MugShop </strong>2023</h4>
-          <div className="redes">
-              <a href="#"><img src={instagram} alt="instagram" className="red"/></a>
-              <a href="#"><img src={facebook} alt="facebook" className="red"/></a>
-              <a href="#"><img src={twitter} alt="twitter" className="red"/></a>
-          </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
