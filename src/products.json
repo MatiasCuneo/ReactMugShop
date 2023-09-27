@@ -14,6 +14,30 @@
       "price": 29.99,
       "category": "Plain",
       "image": "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Cup 3",
+      "description": "Descripcion para Cup 3",
+      "price": 29.99,
+      "category": "Plain",
+      "image": "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Cup 4",
+      "description": "Descripcion para Cup 4",
+      "price": 29.99,
+      "category": "Plain",
+      "image": "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+    },
+    {
+      "id": 5,
+      "name": "Cup 5",
+      "description": "Descripcion para Cup 5",
+      "price": 29.99,
+      "category": "Plain",
+      "image": "https://images.unsplash.com/photo-1570784332176-fdd73da66f03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
     }
 ]
   

@@ -24,28 +24,30 @@ function NavBar() {
                             <input type="text" className="search_bar" name="search" id="search" placeholder="Buscar..." required maxlength="20"/>
                         </form>
                     </li>
-                    <div className="nav_space">
-                        <li className="nav_opt">
-                            <img src={cart} alt="cart" className="nav_icon"/>
-                            <a href="cart">Carrito</a>
-                        </li>
-                        <li className="nav_opt">
-                            <img src={bookopen} alt="book" className="nav_icon"/>
-                            <input type="checkbox" name="dropdown" id="dropdown"/>
-                            <div className="catalogue">
-                                <h2>(TBD)</h2>
-                            </div>
-                            <label htmlFor="dropdown">Descubrir</label>
-                        </li>    
-                    </div>
-                    <div className="separator"></div>
-                    <div className="nav_space">
-                        <li className="nav_opt">
-                            <a href="login">Ingresar</a>
-                        </li>
-                        <li className="nav_opt">
-                            <a href="register"><strong>Registrate</strong></a>
-                        </li>    
+                    <div className="navopts_ul">
+                        <div className="nav_space">
+                            {/* <li className="nav_opt">
+                                <img src={cart} alt="cart" className="nav_icon"/>
+                                <a href="cart">Carrito</a>
+                            </li> */}
+                            <li className="nav_opt">
+                                <img src={bookopen} alt="book" className="nav_icon"/>
+                                {/* <input type="checkbox" name="dropdown" id="dropdown"/>
+                                <div className="catalogue">
+                                    <h2>(TBD)</h2>
+                                </div> */}
+                                <label htmlFor="dropdown"><a href="cart">Descubrir</a></label>
+                            </li>    
+                        </div>
+                        <div className="separator"></div>
+                        <div className="nav_space">
+                            <li className="nav_opt">
+                                <a href="login">Ingresar</a>
+                            </li>
+                            <li className="nav_opt">
+                                <a href="register"><strong>Registrate</strong></a>
+                            </li>    
+                        </div>
                     </div>
                 </ul>
             </nav>

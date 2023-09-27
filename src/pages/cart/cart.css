@@ -1,6 +1,19 @@
+.discover {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F2E3DB;
+    display: flex;
+    justify-content: center;
+    padding-top: 6rem;
+}
+
 .products {
-    width: 80%;
+    width: 60%;
     min-height: 80%;
+}
+
+.cart {
+    width: 20%;
 }
 
 .products ul {
@@ -21,6 +34,8 @@
     border-radius: 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition: all 250ms ease-in-out;
+    position: relative;
+    padding-bottom: 3em;
 }
 
 .products li:hover {
@@ -35,4 +50,22 @@
 
 .products h1 {
     margin-bottom: .25em;
+}
+
+.mainBtn {
+    border: none;
+    background-color: #41644A;
+    color: white;
+    font-weight: bold;
+    padding: .5em 1em;
+    border-radius: 5px;
+    transition: all 150ms ease-in-out;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+
+.mainBtn:hover {
+    cursor: pointer;
+    background-color: #263A29;
 }
