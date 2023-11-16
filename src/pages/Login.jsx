@@ -1,6 +1,13 @@
+import React, { useState } from 'react';
 import NavBar from '../components/navbar/navbar.jsx';
 import Footer from '../components/footer/footer.jsx';
 import loginImg from "../imgs/login.svg";
+
+const Login = () => {
+    const [usuario, setUsuario] = useState('');
+    const [password, setPassword] = useState('');
+};
+
 
 function Login() {
     return (
