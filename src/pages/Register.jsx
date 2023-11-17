@@ -10,9 +10,11 @@ const Register = () => {
   const [password2, setPassword2] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
     try {
-      await axios.post('/register/success', {
+      await axios.post('http://localhost:8080/register/success', {
         usuario,
         password,
         password2,
@@ -21,6 +23,7 @@ const Register = () => {
 
       alert("Usuario registrado exitosamente");
     } catch (error) {
+      alert("Erro al registrar al usuario");
       console.log("Error al registrar el usuario: ", error);
     }
   };
@@ -37,7 +40,7 @@ const Register = () => {
     <div className="Register">
       <NavBar />
       <div className="login">
-        <form action="/register/success" method="post" style={formStyle}>
+        <form style={formStyle}>
           <h1>Registrate</h1>
           <div className="form_input">
             <label htmlFor="usuario">Ingresar Nombre de Usuario</label>
