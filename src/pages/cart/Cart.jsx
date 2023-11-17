@@ -3,6 +3,7 @@ import NavBar from '../../components/navbar/navbar.jsx';
 import Footer from '../../components/footer/footer.jsx';
 import './cart.css';
 import axios from 'axios';
+import { json } from 'react-router-dom';
 
 export default function Cart({productos}) {
     const [cartItems, setCartItems] = useState([]);
@@ -34,19 +35,22 @@ export default function Cart({productos}) {
         }
     };
 
-    const keys = ["id", "quantity"];
-    const filteredCart = Object.fromEntries(Object.entries(cartItems).filter(([key]) => keys.includes(key)));
+    const filteredCart = Object.values(cartItems).map(({ id, quantity }) => ({ id, quantity }));
 
-    const jsonifiedCart = JSON.stringify(filteredCart, null, 2);
+    const jsonifiedCart = JSON.stringify(filteredCart);
 
     const handleCart = async () => {
-        try {
-            await axios.post('http://localhost:8080/cart', {jsonifiedCart});
-
-            alert('Articulos comprados con exito');
-        } catch (err) {
-            alert('Error al realizar la compra');
-            console.log("Error al registrar carrito: ", err)
+        if (jsonifiedCart !== "[]") {
+            try {
+                await axios.post('http://localhost:8080/cart', {jsonifiedCart});
+    
+                alert('Articulos comprados con exito');
+            } catch (err) {
+                alert('Error al realizar la compra');
+                console.log("Error al registrar carrito: ", err)
+            }    
+        } else {
+            alert('Seleccionar articulos antes de realizar la compra');
         }
     };
 
@@ -89,9 +93,6 @@ export default function Cart({productos}) {
                     <button className="mainBtn" onClick={handleCart}>Comprar</button>
                 </div>
             </div>
-            <p>
-            {JSON.stringify(cartItems, null, 2)}
-            </p>
             <Footer />
         </div>
     );
