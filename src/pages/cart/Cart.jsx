@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../../components/navbar/navbar.jsx';
 import Footer from '../../components/footer/footer.jsx';
 import './cart.css';
+import axios from 'axios';
 
 export default function Cart({productos}) {
     const [cartItems, setCartItems] = useState([]);
@@ -30,6 +31,22 @@ export default function Cart({productos}) {
             }
 
             setCartItems(updatedCart);
+        }
+    };
+
+    const keys = ["id", "quantity"];
+    const filteredCart = Object.fromEntries(Object.entries(cartItems).filter(([key]) => keys.includes(key)));
+
+    const jsonifiedCart = JSON.stringify(filteredCart, null, 2);
+
+    const handleCart = async () => {
+        try {
+            await axios.post('http://localhost:8080/cart', {jsonifiedCart});
+
+            alert('Articulos comprados con exito');
+        } catch (err) {
+            alert('Error al realizar la compra');
+            console.log("Error al registrar carrito: ", err)
         }
     };
 
@@ -69,8 +86,12 @@ export default function Cart({productos}) {
                             </div>
                         ))}
                     </div>
+                    <button className="mainBtn" onClick={handleCart}>Comprar</button>
                 </div>
             </div>
+            <p>
+            {JSON.stringify(cartItems, null, 2)}
+            </p>
             <Footer />
         </div>
     );
