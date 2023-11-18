@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/navbar/navbar.jsx';
 import Footer from '../../components/footer/footer.jsx';
 import './cart.css';
 import axios from 'axios';
-import { json } from 'react-router-dom';
 
-export default function Cart({productos}) {
+export default function Cart() {
     const [cartItems, setCartItems] = useState([]);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/products');
+                setData(response.data);
+            } catch (error) {
+                console.error('Error interno del servidor:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const addToCart = (product) => {
         if (cartItems[product.id]) {
@@ -62,11 +75,11 @@ export default function Cart({productos}) {
                     <ul>
                         <h1>Categoria 1</h1>
                         <div className="items">
-                            {productos.map(producto => (
+                            {data.map(producto => (
                                 <li className="item_style" key={producto.id}>
-                                    <img src={producto.image} alt={producto.name} />
-                                    <h3><b>{producto.name}</b> - {producto.price}</h3>
-                                    <p>{producto.description}</p>
+                                    <img src={producto.image} alt={producto.nombre} />
+                                    <h3><b>{producto.nombre}</b> - {producto.precio}</h3>
+                                    <p>{producto.desc}</p>
                                     <button className="mainBtn" onClick={() => addToCart(producto)}>Añadir</button>
                                 </li>
                             ))}
@@ -79,9 +92,9 @@ export default function Cart({productos}) {
                     <div className="pushed">
                         {Object.values(cartItems).map((item) => (
                             <div className="item_style" key={item.id}>
-                                <img src={item.image} alt={item.name} />
+                                <img src={item.image} alt={item.nombre} />
                                 <h3>
-                                {item.name} - {Number((item.price * item.quantity)).toFixed(1)}
+                                {item.nombre} - {Number((item.precio * item.quantity)).toFixed(1)}
                                 </h3>
                                 <p>Cantidad: {item.quantity}</p>
                                 <button className="mainBtn" onClick={() => removeFromCart(item.id)}>

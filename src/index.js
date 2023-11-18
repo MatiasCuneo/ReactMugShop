@@ -6,7 +6,6 @@ import App from './App';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/cart/Cart';
-import products from './products.json';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -24,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/cart',
-    element: <Cart productos={products}/>
+    element: <Cart/>
   }
 ]);
 
