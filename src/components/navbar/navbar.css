@@ -83,6 +83,11 @@ nav,
     height: 100%;
 }
 
+.MuiInputBase-input {
+    background-color: white !important;
+    border-radius: 5px;
+}
+
 .nav_opt form {
     width: 100%;
 }

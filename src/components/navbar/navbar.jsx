@@ -1,12 +1,42 @@
 import toggleClass from '../../js/hamburguer.js';
 import logo from '../../imgs/logo.png';
-import cart from '../../imgs/cart.svg';
 import bookopen from '../../imgs/book-open.svg';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function NavBar() {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [data, setData] = useState([]);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     const displayNone = {
         display: 'none'
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/products');
+                setData(response.data)
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return(
         <header>
@@ -19,23 +49,44 @@ function NavBar() {
             <nav className="" id="nav">
                 <img src={logo} alt="logo" className="logo" />
                 <ul className="nav_opts">
-                    <li className="nav_opt nav_search">
-                        <form action="#" method="get">
-                            <input type="text" className="search_bar" name="search" id="search" placeholder="Buscar..." required maxlength="20"/>
-                        </form>
+                    <li className="search">
+                        <Box
+                            component="form"
+                            sx={{
+                                '& > :not(style)': { m: 1, width: '25ch' },
+                            }}
+                            noValidate
+                            autoComplete="off"
+                            >
+                            <TextField 
+                                id="filled-basic" 
+                                label="Search..." 
+                                variant="filled"
+                                aria-controls={open ? 'basic-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onChange={handleClick}
+                            />
+                        </Box>
+                            
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                            }}
+                        >
+                            {data.map(producto => (
+                                <MenuItem onClick={handleClose}>{producto.nombre}</MenuItem>
+                            ))}
+                        </Menu>
                     </li>
                     <div className="navopts_ul">
                         <div className="nav_space">
-                            {/* <li className="nav_opt">
-                                <img src={cart} alt="cart" className="nav_icon"/>
-                                <a href="cart">Carrito</a>
-                            </li> */}
                             <li className="nav_opt">
                                 <img src={bookopen} alt="book" className="nav_icon"/>
-                                {/* <input type="checkbox" name="dropdown" id="dropdown"/>
-                                <div className="catalogue">
-                                    <h2>(TBD)</h2>
-                                </div> */}
                                 <label htmlFor="dropdown"><a href="cart">Descubrir</a></label>
                             </li>    
                         </div>
