@@ -31,3 +31,10 @@ ChatGPT proporciona respuestas utilizando un proceso de generación de texto bas
 Después de analizar y comprender la solicitud o pregunta, el modelo utiliza su conocimiento previo y el contexto proporcionado para generar una respuesta relevante y coherente.
 Este proceso implica seleccionar palabras y construir frases de manera secuencial, teniendo en cuenta la coherencia y la fluidez del texto resultante.
 Las respuestas se generan de manera dinámica y pueden variar según la entrada y el contexto específico de la interacción.
+
+---------------------------------------------------
+
+Para ChatGPT, una palabra clave o "prompt word" es un término que indica el inicio de una solicitud o pregunta específica por parte del usuario.
+Sin embargo, más allá de simplemente reconocer estas palabras, ChatGPT analiza el contexto en el que aparecen y cómo se relacionan con el resto del texto.
+Esto implica comprender el significado semántico y pragmático de la palabra clave dentro del contexto dado, así como también interpretar su relación con otras palabras y frases relacionadas al texto.
+En resumen, para ChatGPT, una palabra clave no es solo un término aislado, sino un elemento crucial dentro de un contexto más amplio que influye en la comprensión y generación de respuestas en español.
