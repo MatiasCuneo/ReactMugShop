@@ -1,17 +1,29 @@
-ChatGPT comprende las indicaciones a través de su arquitectura de inteligencia artificial basada en procesamiento de lenguaje natural.
-Cuando se le presenta una solicitud o "prompt" en inglés, analiza el texto para comprender su significado y contexto.
-Utiliza modelos de lenguaje pre-entrenados y vastos conjuntos de datos para generar respuestas coherentes y relevantes.
-Este proceso implica la comprensión de patrones lingüísticos, semántica y contexto para producir respuestas adecuadas.
+ChatGPT comprende los indicadores a través de un proceso de análisis lingüístico y contextual.
+Cuando se le proporciona un prompt, el modelo descompone el texto en unidades semánticas y sintácticas para captar la intención del usuario. 
+Esto implica la identificación de palabras clave, la interpretación del contexto y la inferencia de significado a partir de la estructura gramatical y el sentido común.
+Además, utiliza su conocimiento previo y las conexiones establecidas durante el entrenamiento para generar una respuesta relevante y coherente. 
 
 ---------------------------------------------------
 
-Tokenización: La entrada de texto se divide en unidades más pequeñas llamadas "tokens". Estos pueden ser palabras individuales, partes de palabras o incluso caracteres.
+El procedimiento para que ChatGPT prediga palabra tras palabra implica varias etapas complejas de procesamiento de lenguaje natural (NLP) y aprendizaje automático. Aquí hay una descripción detallada:
 
-Codificación: Cada token se codifica en un formato comprensible para el modelo, que generalmente implica representarlo como un vector numérico.
+Tokenización: El texto de entrada se divide en unidades más pequeñas llamadas "tokens", que pueden ser palabras, caracteres o subpalabras. Esto permite que el modelo maneje el texto de manera más efectiva.
 
-Predicción: El modelo utiliza la secuencia de tokens codificados para predecir la siguiente palabra en la secuencia. Esto se hace utilizando técnicas de modelado de lenguaje que analizan el contexto de las palabras anteriores para hacer una predicción informada.
+Codificación de tokens: Cada token se codifica en una representación numérica única. Esto suele implicar la asignación de un índice único a cada token en un vocabulario predefinido.
 
-Generación de texto: Una vez que se ha predicho la siguiente palabra, se agrega a la secuencia y el proceso se repite para predecir la siguiente palabra, y así sucesivamente hasta que se completa la generación del texto deseado.
+Modelo de lenguaje: ChatGPT utiliza un modelo de lenguaje basado en redes neuronales, como una red neuronal recurrente (RNN), una red neuronal convolucional (CNN) o, más comúnmente, un modelo de transformador, como GPT (Transformer Generative Pre-trained Transformer).
+
+Embeddings de palabras: Cada token codificado se convierte en un vector denso de números reales llamado embedding. Estos embeddings representan el significado semántico de las palabras y se utilizan como entrada para el modelo.
+
+Capas de procesamiento: El modelo de lenguaje consta de múltiples capas de procesamiento. En el caso de un modelo de transformador como GPT, esto incluye capas de atención, capas de normalización y capas de alimentación hacia adelante.
+
+Atención y contexto: El modelo utiliza la atención para ponderar la importancia de cada token en función del contexto global del texto. Esto permite que el modelo se centre en partes relevantes del texto al predecir la siguiente palabra.
+
+Predicción de palabras: Basándose en el contexto proporcionado por las capas anteriores y las representaciones de palabras aprendidas, el modelo hace una predicción sobre la siguiente palabra en el texto. Esta predicción se realiza mediante una capa de salida softmax, que asigna una probabilidad a cada token en el vocabulario.
+
+Muestreo o selección de palabras: Una vez que se calculan las probabilidades para cada palabra en el vocabulario, el modelo puede seleccionar la siguiente palabra utilizando diferentes estrategias, como la selección de la palabra con la mayor probabilidad (greedy decoding) o mediante muestreo estocástico (como la decodificación por muestreo de Gibbs o la decodificación estocástica top-k).
+
+Iteración: Este proceso se repite iterativamente para generar texto palabra por palabra hasta que se alcanza un punto de finalización predeterminado o se genera un texto de la longitud deseada.
 
 ---------------------------------------------------
 
