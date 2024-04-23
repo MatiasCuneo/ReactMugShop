@@ -1,42 +1,24 @@
 import toggleClass from '../../js/hamburguer.js';
 import logo from '../../imgs/logo.png';
 import bookopen from '../../imgs/book-open.svg';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { setup } from '../../ai/neural_network.js';
 
 function NavBar() {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const [data, setData] = useState([]);
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     const displayNone = {
         display: 'none'
     }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:8080/products');
-                setData(response.data)
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    const flex = {
+        display: 'flex',
+        gap: '2.5em'
+    }
 
-        fetchData();
-    }, []);
+    useEffect(() => {
+        setup();
+    }, ['filled-basic']);
 
     return(
         <header>
@@ -57,31 +39,20 @@ function NavBar() {
                             }}
                             noValidate
                             autoComplete="off"
+                            className={flex}
                             >
                             <TextField 
                                 id="filled-basic" 
                                 label="Search..." 
                                 variant="filled"
-                                aria-controls={open ? 'basic-menu' : undefined}
-                                aria-haspopup="true"
-                                aria-expanded={open ? 'true' : undefined}
-                                onChange={handleClick}
+                            />
+                            <TextField 
+                                id="pred_labels" 
+                                label="" 
+                                variant="outlined"
+                                disabled
                             />
                         </Box>
-                            
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                            'aria-labelledby': 'basic-button',
-                            }}
-                        >
-                            {data.map(producto => (
-                                <MenuItem onClick={handleClose}>{producto.nombre}</MenuItem>
-                            ))}
-                        </Menu>
                     </li>
                     <div className="navopts_ul">
                         <div className="nav_space">
