@@ -2,7 +2,6 @@ const ALPHA_LEN = 26;
 const sample_len = 1;
 const max_len = 10;
 let model;
-var status = "";
 const tf = require('@tensorflow/tfjs');
 export async function setup() {
     model = await create_model(max_len, ALPHA_LEN);
@@ -29,7 +28,6 @@ function preprocessing_stage_2(words,max_len){
     // function to convert the wordlist to int 
     // string [] = words
     // int = max_len
-    status = "Preprocessing Data 2";
     let int_words = [];
     for (let i in words){
         int_words.push(word_to_int(words[i],max_len))
@@ -40,7 +38,6 @@ function preprocessing_stage_5(words, max_len, alpha_len) {
     // function to convert int to onehot encoding 
     // int [] = words
     // int = max_len, alpha_len
-    status = "Preprocessing Data 5";
     return tf.oneHot(tf.tensor2d(words, [words.length, max_len], 'int32'), alpha_len);
 }
 function postprocessing_stage_1(words){
@@ -74,7 +71,7 @@ function int_to_word (word,max_len){
     // int = max_len
     let decode = []
     for (let i = 0; i < max_len; i++) {
-        if(word[i]==0){
+        if(word[i]===0){
             decode.push("");
         }else{
             decode.push(String.fromCharCode(word[i]+96))
@@ -107,14 +104,12 @@ async function create_model(max_len,alpha_len){
 
 async function loadModelFromFile() {
     try {
-      const response = await fetch('autocorrect_model.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch model file.');
-      }
-      
-      return await tf.loadLayersModel('autocorrect_model.json');
+        const modelUrl = 'http://localhost:3000/autocorrect_model.json'
+
+        // Load the model using the parsed JSON data
+        return await tf.loadLayersModel(tf.io.browserHTTPRequest(modelUrl));
     } catch (error) {
-      console.error('Error loading model:', error);
-      throw error;
+        console.error('Error loading model:', error);
+        throw error;
     }
-  }
+}
