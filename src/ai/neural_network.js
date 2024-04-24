@@ -3,6 +3,7 @@ const sample_len = 1;
 const max_len = 10;
 let model;
 const tf = require('@tensorflow/tfjs');
+let pred_labels;
 export async function setup() {
     model = await create_model(max_len, ALPHA_LEN);
 
@@ -13,21 +14,27 @@ export async function setup() {
         let pred_features = [];
         pred_features.push(document.getElementById('filled-basic').value);
         if (pred_features[0].length < sample_len + 1 || !pattern.test(pred_features[0])) {
-            document.getElementById('pred_labels').value = '';
+            document.getElementById('pred_labels').style.display = 'none';
+            document.getElementById('pred_labels').innerHTML = '';
             return;
         }
         pred_features = preprocessing_stage_2(pred_features, max_len);
         pred_features = preprocessing_stage_5(pred_features, max_len, ALPHA_LEN);
-        let pred_labels = await model.predict(pred_features);
+        pred_labels = await model.predict(pred_features);
         pred_labels = postprocessing_stage_1(pred_labels)
         pred_labels = postprocessing_stage_2(pred_labels, max_len)[0]
-        document.getElementById('pred_labels').value = pred_labels.join("");
-    })
+        pred_labels = pred_labels.join("");
+        document.getElementById('pred_labels').style.display = 'block';
+        document.getElementById('pred_labels').innerHTML = pred_labels;
+    });
+
+    document.getElementById('pred_labels').addEventListener('click', () => {
+        document.getElementById('filled-basic').value = document.getElementById('pred_labels').innerHTML;
+
+        document.getElementById('pred_labels').style.display = 'none';
+    });
 }
 function preprocessing_stage_2(words,max_len){
-    // function to convert the wordlist to int 
-    // string [] = words
-    // int = max_len
     let int_words = [];
     for (let i in words){
         int_words.push(word_to_int(words[i],max_len))
@@ -35,17 +42,12 @@ function preprocessing_stage_2(words,max_len){
     return int_words;
 }
 function preprocessing_stage_5(words, max_len, alpha_len) {
-    // function to convert int to onehot encoding 
-    // int [] = words
-    // int = max_len, alpha_len
     return tf.oneHot(tf.tensor2d(words, [words.length, max_len], 'int32'), alpha_len);
 }
 function postprocessing_stage_1(words){
-    //function to decode onehot encoding
     return words.argMax(-1).arraySync();
 }
 function postprocessing_stage_2(words,max_len){
-    //function to convert int to words
     let results = [];
     for (let i in words){
         results.push(int_to_word(words[i],max_len));
@@ -53,8 +55,6 @@ function postprocessing_stage_2(words,max_len){
     return results;
 }
 function word_to_int (word,max_len){
-    // char [] = word
-    // int = max_len
     let encode = [];
     for (let i = 0; i < max_len; i++) {
         if(i<word.length){
@@ -67,8 +67,6 @@ function word_to_int (word,max_len){
     return encode;
 }
 function int_to_word (word,max_len){
-    // int [] = word
-    // int = max_len
     let decode = []
     for (let i = 0; i < max_len; i++) {
         if(word[i]===0){
@@ -106,7 +104,6 @@ async function loadModelFromFile() {
     try {
         const modelUrl = 'http://localhost:3000/autocorrect_model.json'
 
-        // Load the model using the parsed JSON data
         return await tf.loadLayersModel(tf.io.browserHTTPRequest(modelUrl));
     } catch (error) {
         console.error('Error loading model:', error);

@@ -125,6 +125,23 @@ nav,
     line-height: 1.2rem;
 }
 
+.search {
+    position: relative;
+}
+
+#pred_labels {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 8px;
+    background-color: white;
+    color: #CCCCCC;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 #dropdown {
     display: none;
 }

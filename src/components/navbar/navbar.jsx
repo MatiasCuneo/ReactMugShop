@@ -18,7 +18,7 @@ function NavBar() {
 
     useEffect(() => {
         setup();
-    }, ['filled-basic']);
+    }, []);
 
     return(
         <header>
@@ -46,13 +46,8 @@ function NavBar() {
                                 label="Search..." 
                                 variant="filled"
                             />
-                            <TextField 
-                                id="pred_labels" 
-                                label="" 
-                                variant="outlined"
-                                disabled
-                            />
                         </Box>
+                        <span id="pred_labels"></span>
                     </li>
                     <div className="navopts_ul">
                         <div className="nav_space">
